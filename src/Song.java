@@ -1,6 +1,9 @@
+import java.io.Serial;
 import java.io.Serializable;
 
 public class Song implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1;
     private String name;
 
     public Song(String name) {
