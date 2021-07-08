@@ -1,3 +1,4 @@
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Scanner;
@@ -5,7 +6,8 @@ import java.util.Scanner;
 public class AlbumBook implements Serializable {
     static List<Album> albumList = IOOperator.readDataFromFile("src/Album.txt");
     static Scanner input = new Scanner(System.in);
-
+    @Serial
+    private static final long serialVersionUID = 1;
     public static void addNewAlbum(String name) {
         for (Album album : albumList) {
             if (album.getName().equals(name)) {
