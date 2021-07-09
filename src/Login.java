@@ -63,10 +63,12 @@ public class Login {
             System.out.println("Username");
             String username = input.nextLine();
             boolean exist = false;
-            for (User user : userList) {
-                if (user.getUsername().equalsIgnoreCase(username)) {
-                    System.out.println("User already exist");
-                    exist = true;
+            if(NameValidator.validate(username)){
+                for (User user : userList) {
+                    if (user.getUsername().equalsIgnoreCase(username)) {
+                        System.out.println("User already exist");
+                        exist = true;
+                    }
                 }
             }
             if (!exist) {
