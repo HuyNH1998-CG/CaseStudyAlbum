@@ -15,6 +15,7 @@ public class AlbumManager {
                 System.out.println("7. Search songs");
                 System.out.println("8. Search Album");
                 System.out.println("9. Exit");
+                System.out.println("0. Log out");
                 int choice = Integer.parseInt(input.nextLine());
                 switch (choice) {
                     case 1 -> {
@@ -52,6 +53,9 @@ public class AlbumManager {
                         AlbumBook.findAlbum(albumName);
                     }
                     case 9 -> System.exit(0);
+                    case 0 -> {
+                        return;
+                    }
                 }
             }catch (NumberFormatException e){
                 System.out.println("Command Must be Number");
