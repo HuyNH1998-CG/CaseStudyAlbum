@@ -1,6 +1,17 @@
 import java.util.Scanner;
 
 public class AlbumManager {
+    private static final int createAlbum = 1;
+    private static final int addSong = 2;
+    private static final int deleteAlbum = 3;
+    private static final int editAlbum = 4;
+    private static final int showSong = 5;
+    private static final int showAlbum = 6;
+    private static final int searchSong = 7;
+    private static final int searchAlbum = 8;
+    private static final int exit = 9;
+    private static final int logOut = 0;
+
     public static void Menu() {
         Scanner input = new Scanner(System.in);
         while (true) {
@@ -18,11 +29,11 @@ public class AlbumManager {
                 System.out.println("0. Log out");
                 int choice = Integer.parseInt(input.nextLine());
                 switch (choice) {
-                    case 1 -> {
+                    case createAlbum -> {
                         String albumName = getAlbumName(input);
                         AlbumBook.addNewAlbum(albumName);
                     }
-                    case 2 -> {
+                    case addSong -> {
                         String albumName = getAlbumName(input);
                         String songName = getSongName(input);
                         try {
@@ -31,33 +42,33 @@ public class AlbumManager {
                             System.out.println("Album not found");
                         }
                     }
-                    case 3 -> {
+                    case deleteAlbum -> {
                         String albumName = getAlbumName(input);
                         AlbumBook.removeAlbum(albumName, Login.loggedInUser.getUsername());
                     }
-                    case 4 -> {
+                    case editAlbum -> {
                         String albumName = getAlbumName(input);
                         AlbumBook.changeAlbumName(albumName, Login.loggedInUser.getUsername());
                     }
-                    case 5 -> {
+                    case showSong -> {
                         String albumName = getAlbumName(input);
                         AlbumBook.getAlbumSong(albumName, Login.loggedInUser.getUsername());
                     }
-                    case 6 -> AlbumBook.showAll();
-                    case 7 -> {
+                    case showAlbum -> AlbumBook.showAll();
+                    case searchSong -> {
                         String songName = getSongName(input);
                         AlbumBook.getSong(songName);
                     }
-                    case 8 -> {
+                    case searchAlbum -> {
                         String albumName = getAlbumName(input);
                         AlbumBook.findAlbum(albumName);
                     }
-                    case 9 -> System.exit(0);
-                    case 0 -> {
+                    case exit -> System.exit(0);
+                    case logOut -> {
                         return;
                     }
                 }
-            }catch (NumberFormatException e){
+            } catch (NumberFormatException e) {
                 System.out.println("Command Must be Number");
             }
         }

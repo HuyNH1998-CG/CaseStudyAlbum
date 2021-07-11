@@ -5,6 +5,10 @@ public class Login {
     public static User loggedInUser;
     public static List<User> userList = IOOperator.readDataFromUserFile("src/User.txt");
 
+    private static final int login = 1;
+    private static final int register = 2;
+    private static final int exit = 3;
+
     public static void menu() {
         Scanner input = new Scanner(System.in);
         while (true) {
@@ -15,15 +19,15 @@ public class Login {
                 System.out.println("3. Exit");
                 int choice = Integer.parseInt(input.nextLine());
                 switch (choice) {
-                    case 1 -> {
+                    case login -> {
                         login(input);
                     }
-                    case 2 -> {
+                    case register -> {
                         register(input);
                     }
-                    case 3 -> System.exit(0);
+                    case exit -> System.exit(0);
                 }
-            }catch (NumberFormatException e){
+            } catch (NumberFormatException e) {
                 System.out.println("Command Must input number");
             }
         }
@@ -63,7 +67,7 @@ public class Login {
             System.out.println("Username");
             String username = input.nextLine();
             boolean exist = false;
-            if(NameValidator.validate(username)){
+            if (NameValidator.validate(username)) {
                 for (User user : userList) {
                     if (user.getUsername().equalsIgnoreCase(username)) {
                         System.out.println("User already exist");
