@@ -8,7 +8,7 @@ public class Album implements Serializable {
     private String name;
     private final String owner;
     @Serial
-    private static final long serialVersionUID = 1;
+    private static final long serialVersionUID = 1L;
 
     public Album(String name, String user) {
         this.name = name;

@@ -5,7 +5,7 @@ public class User implements Serializable {
     private String username;
     private String password;
     @Serial
-    private static final long serialVersionUID = 1;
+    private static final long serialVersionUID = 1L;
 
     public User(String username, String password) {
         this.username = username;

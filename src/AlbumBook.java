@@ -7,7 +7,8 @@ public class AlbumBook implements Serializable {
     static List<Album> albumList = IOOperator.readDataFromFile("src/Album.txt");
     static Scanner input = new Scanner(System.in);
     @Serial
-    private static final long serialVersionUID = 1;
+    private static final long serialVersionUID = 1L;
+    private static final int yes = 1;
     public static void addNewAlbum(String name) {
         for (Album album : albumList) {
             if (album.getName().equals(name)) {
@@ -58,7 +59,7 @@ public class AlbumBook implements Serializable {
                     System.out.println("1. Yes");
                     System.out.println("2. No");
                     int answer = Integer.parseInt(input.nextLine());
-                    if (answer == 1) {
+                    if (answer == yes) {
                         albumList.remove(album);
                         System.out.println("An Album have been removed");
                         return;

@@ -3,7 +3,7 @@ import java.io.Serializable;
 
 public class Song implements Serializable {
     @Serial
-    private static final long serialVersionUID = 1;
+    private static final long serialVersionUID = 1L;
     private String name;
 
     public Song(String name) {
